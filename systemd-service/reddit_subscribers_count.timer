@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the reddit_subscribers_count script daily
+
+[Timer]
+#OnBootSec=15min
+#OnUnitActiveSec=1d
+OnCalendar=*-*-* *:02:00
+Persistent = True
+
+[Install]
+WantedBy=timers.target

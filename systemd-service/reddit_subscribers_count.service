@@ -1,0 +1,10 @@
+[Unit]
+Description=bot reddit
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Documents/reddit_subscribers_count/
+ExecStart=/usr/bin/python %h/Documents/reddit_subscribers_count/reddit_subscribers_count.py
+
+[Install]
+WantedBy=multi-user.target
