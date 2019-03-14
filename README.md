@@ -1,10 +1,10 @@
 # reddit_subscribers_count
 
-Extract subscribers count 
+Extract subscribers count of a list of subreddit defined in a text file
 
 ## Pre-requisites
 
-- praw config in ~/.config/
+- working praw config in ~/.config/ (see praw.ini_sample for an example)
 
 ## Installation
 
