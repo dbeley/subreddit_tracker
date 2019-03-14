@@ -42,7 +42,6 @@ def main():
     if not os.path.exists(directory):
         logger.debug("Creating Exports Folder")
         os.makedirs(directory)
-    # os.chdir(directory)
 
     for subreddit in subreddits:
         subscribers_count = reddit.subreddit(subreddit).subscribers
