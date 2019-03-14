@@ -5,7 +5,6 @@ Extract subscribers count
 ## Pre-requisites
 
 - praw config in ~/.config/
--
 
 ## Installation
 

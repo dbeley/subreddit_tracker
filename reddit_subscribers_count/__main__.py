@@ -53,7 +53,7 @@ def main():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Script extracting the subscribers count of several subreddits"))
+    parser = argparse.ArgumentParser(description="Script extracting the subscribers count of several subreddits")
     parser.add_argument('--debug', help="Display debugging information", action="store_const", dest="loglevel", const=logging.DEBUG, default=logging.INFO)
     parser.add_argument('-f', '--file', help="File containing the subreddits (default : sample file containing popular subreddits)", type=str)
     args = parser.parse_args()

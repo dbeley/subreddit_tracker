@@ -3,8 +3,8 @@ Description=bot reddit
 
 [Service]
 Type=oneshot
-WorkingDirectory=%h/Documents/reddit_subscribers_count/
-ExecStart=/usr/bin/python %h/Documents/reddit_subscribers_count/reddit_subscribers_count.py
+WorkingDirectory=%h/Documents/reddit_subscribers_count_exports/
+ExecStart=/usr/bin/python %h/Documents/reddit_subscribers_count/reddit_subscribers_count.py -f subreddit_list.txt
 
 [Install]
 WantedBy=multi-user.target
