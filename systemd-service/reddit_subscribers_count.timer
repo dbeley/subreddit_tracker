@@ -1,5 +1,5 @@
 [Unit]
-Description=Run the reddit_subscribers_count script daily
+Description=Run the reddit_subscribers_count script every hour
 
 [Timer]
 #OnBootSec=15min

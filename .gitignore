@@ -4,3 +4,4 @@ dist/
 praw.ini
 subreddit_list.txt
 Exports/
+*.csv
