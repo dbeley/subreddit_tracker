@@ -45,9 +45,11 @@ def main():
 
     for subreddit in subreddits:
         subscribers_count = reddit.subreddit(subreddit).subscribers
-        print(f"/r/{subreddit} : {subscribers_count} subscribers")
+        logger.debug(f"/r/{subreddit} : {subscribers_count} subscribers")
         with open(f"{directory}/subreddits_subscribers_count.csv", 'a+') as f:
             f.write(f"{subreddit},{auj},{subscribers_count}\n")
+        with open(f"{directory}/{subreddit}_subscribers_count.csv", 'a+') as f:
+            f.write(f"{subreddit},{auj}.{subscribers_count}\n")
 
     logger.debug("Runtime : %.2f seconds" % (time.time() - temps_debut))
 

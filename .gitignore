@@ -5,3 +5,5 @@ praw.ini
 subreddit_list.txt
 Exports/
 *.csv
+test.py
+tags
