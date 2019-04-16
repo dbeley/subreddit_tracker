@@ -49,7 +49,7 @@ def main():
         with open(f"{directory}/subreddits_subscribers_count.csv", 'a+') as f:
             f.write(f"{subreddit},{auj},{subscribers_count}\n")
         with open(f"{directory}/{subreddit}_subscribers_count.csv", 'a+') as f:
-            f.write(f"{subreddit},{auj}.{subscribers_count}\n")
+            f.write(f"{subreddit},{auj},{subscribers_count}\n")
 
     logger.debug("Runtime : %.2f seconds" % (time.time() - temps_debut))
 
