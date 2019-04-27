@@ -1,12 +1,12 @@
 import setuptools
-import scrap_revuedepresse
+import reddit_subscribers_count
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
         name="reddit_subscribers_count",
-        version=scrap_revuedepresse.__version__,
+        version=reddit_subscribers_count.__version__,
         author="dbeley",
         author_email="dbeley@protonmail.com",
         description="Scrap subreddits subscribers count",
