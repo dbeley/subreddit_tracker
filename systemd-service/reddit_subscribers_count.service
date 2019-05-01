@@ -7,7 +7,9 @@ WorkingDirectory=%h/Documents/reddit_subscribers_count/
 # Without virtualenv
 # ExecStart=/usr/bin/python /usr/bin/reddit_subscribers_count -f subreddit_list.txt
 # With virtualenv
-ExecStart=%h/Documents/reddit_subscribers_count/venv/bin/python %h/Documents/reddit_subscribers_count/venv/bin/reddit_subscribers_count -f subreddit_list.txt
+# ExecStart=%h/Documents/reddit_subscribers_count/venv/bin/python %h/Documents/reddit_subscribers_count/venv/bin/reddit_subscribers_count -f subreddit_list.txt
+# With pipenv
+ExecStart=/usr/bin/pipenv run reddit_subscribers_count -f subreddit_list.txt
 
 [Install]
 WantedBy=multi-user.target
