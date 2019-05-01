@@ -8,4 +8,3 @@ Exports/
 *.csv
 test.py
 tags
-venv/
