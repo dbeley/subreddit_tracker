@@ -1,10 +1,11 @@
+*.egg-info/
+.venv/
+Exports/
 __pycache__/
 build/
 dist/
-*.egg-info/
-praw.ini
-subreddit_list.txt
-Exports/
 *.csv
-test.py
+/subreddit_list.txt
+praw.ini
 tags
+test.py
