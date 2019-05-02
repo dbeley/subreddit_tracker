@@ -9,13 +9,13 @@ Extract subscribers count of a list of subreddit defined in a text file to a csv
 ## Installation
 
 ```
-sudo python setup.py install
+pipenv install '-e .'
 ```
 
 ## Help
 
 ```
-reddit_subscribers_count -h
+pipenv run reddit_subscribers_count -h
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ videos
 You can then call
 
 ```
-reddit_subscribers_count -f subreddit_list.txt
+pipenv run reddit_subscribers_count -f subreddit_list.txt
 ```
 
 ## Autostarting
