@@ -6,6 +6,7 @@ import locale
 import praw
 import datetime
 import pkg_resources
+from pathlib import Path
 
 
 logger = logging.getLogger()
@@ -19,6 +20,12 @@ def redditconnect(bot):
     return reddit
 
 
+def write_sample_file(filename):
+    columns = "Name,Date,Subscribers,Live Users\n"
+    with open(filename, 'w') as f:
+        f.write(columns)
+
+
 def main():
     args = parse_args()
     file = args.file
@@ -27,11 +34,14 @@ def main():
 
     reddit = redditconnect("bot")
 
+    logger.debug("Subreddit list parsing")
     if file is None:
+        logger.debug("Using default subreddit_list.txt")
         file = pkg_resources.resource_string(__name__, "subreddit_list.txt")
         subreddits = file.decode("utf-8").split('\n')
         subreddits = subreddits[:-1]
     else:
+        logger.debug(f"Using {file} custom list")
         with open(file, 'r') as f:
             subreddits = f.readlines()
         subreddits = [x.strip() for x in subreddits]
@@ -39,17 +49,26 @@ def main():
 
     logger.debug("Check Exports Folder")
     directory = "Exports"
-    if not os.path.exists(directory):
-        logger.debug("Creating Exports Folder")
-        os.makedirs(directory)
+    Path(directory).mkdir(parents=True, exist_ok=True)
+
+    global_filename = f"{directory}/subreddits_subscribers_count.csv"
+    if not Path(global_filename).is_file():
+        write_sample_file(global_filename)
 
     for subreddit in subreddits:
+        logger.debug(f"Extracting infos for subreddit {subreddit}")
         subscribers_count = reddit.subreddit(subreddit).subscribers
+        live_users = reddit.subreddit(subreddit).accounts_active
+
+        filename = f"{directory}/{subreddit}_subscribers_count.csv"
+        if not Path(filename).is_file():
+            write_sample_file(filename)
+
         logger.debug(f"/r/{subreddit} : {subscribers_count} subscribers")
-        with open(f"{directory}/subreddits_subscribers_count.csv", 'a+') as f:
-            f.write(f"{subreddit},{auj},{subscribers_count}\n")
-        with open(f"{directory}/{subreddit}_subscribers_count.csv", 'a+') as f:
-            f.write(f"{subreddit},{auj},{subscribers_count}\n")
+        with open(global_filename, 'a+') as f:
+            f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
+        with open(filename, 'a+') as f:
+            f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
 
     logger.debug("Runtime : %.2f seconds" % (time.time() - temps_debut))
 
