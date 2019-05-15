@@ -1,4 +1,3 @@
-import os
 import argparse
 import logging
 import time
@@ -7,7 +6,6 @@ import praw
 import datetime
 import pkg_resources
 from pathlib import Path
-
 
 logger = logging.getLogger()
 temps_debut = time.time()
@@ -64,7 +62,7 @@ def main():
         if not Path(filename).is_file():
             write_sample_file(filename)
 
-        logger.debug(f"/r/{subreddit} : {subscribers_count} subscribers")
+        logger.debug(f"/r/{subreddit} : {subscribers_count} subscribers, {live_users} live users")
         with open(global_filename, 'a+') as f:
             f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
         with open(filename, 'a+') as f:
