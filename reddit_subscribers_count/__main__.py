@@ -26,21 +26,20 @@ def write_sample_file(filename):
 
 def main():
     args = parse_args()
-    file = args.file
     locale.setlocale(locale.LC_TIME, "fr_FR.utf-8")
     auj = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
     reddit = redditconnect("bot")
 
     logger.debug("Subreddit list parsing")
-    if file is None:
+    if args.file is None:
         logger.debug("Using default subreddit_list.txt")
         file = pkg_resources.resource_string(__name__, "subreddit_list.txt")
         subreddits = file.decode("utf-8").split('\n')
         subreddits = subreddits[:-1]
     else:
-        logger.debug(f"Using {file} custom list")
-        with open(file, 'r') as f:
+        logger.debug("Using %s custom list", args.file)
+        with open(args.file, 'r') as f:
             subreddits = f.readlines()
         subreddits = [x.strip() for x in subreddits]
     logger.debug(subreddits)
@@ -54,7 +53,7 @@ def main():
         write_sample_file(global_filename)
 
     for subreddit in subreddits:
-        logger.debug(f"Extracting infos for subreddit {subreddit}")
+        logger.debug("Extracting infos for subreddit %s", subreddit)
         subscribers_count = reddit.subreddit(subreddit).subscribers
         live_users = reddit.subreddit(subreddit).accounts_active
 
@@ -62,7 +61,7 @@ def main():
         if not Path(filename).is_file():
             write_sample_file(filename)
 
-        logger.debug(f"/r/{subreddit} : {subscribers_count} subscribers, {live_users} live users")
+        logger.debug("/r/%s : {subscribers_count} subscribers, {live_users} live users", subreddit)
         with open(global_filename, 'a+') as f:
             f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
         with open(filename, 'a+') as f:
