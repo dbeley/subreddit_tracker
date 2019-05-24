@@ -2,20 +2,15 @@
 
 Extract subscribers count of a list of subreddit defined in a text file to a csv file
 
-## Pre-requisites
+## Requirements
 
+- praw
 - working praw config in ~/.config/ (see praw.ini_sample for an example)
 
-## Installation
+## Installation in a virtualenv (recommended)
 
 ```
 pipenv install '-e .'
-```
-
-## Help
-
-```
-pipenv run reddit_subscribers_count -h
 ```
 
 ## Usage
@@ -31,7 +26,7 @@ videos
 You can then call
 
 ```
-pipenv run reddit_subscribers_count -f subreddit_list.txt
+reddit_subscribers_count -f subreddit_list.txt
 ```
 
 ## Autostarting
@@ -47,4 +42,22 @@ You can launch the timer with
 ```
 systemctl --user daemon-reload
 systemctl --user enable --now reddit_subscribers_count.timer
+```
+
+## Help
+
+```
+reddit_subscribers_count -h
+```
+
+```
+usage: reddit_subscribers_count [-h] [--debug] [-f FILE]
+
+Script extracting the subscribers count of several subreddits
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               Display debugging information
+  -f FILE, --file FILE  File containing the subreddits (default : sample file
+                        containing popular subreddits)
 ```
