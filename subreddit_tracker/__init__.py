@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-extract subscribers count
+extract subscribers and live users count from subreddits
 """
 
 __version__ = "1.0"
 
-name = "reddit_subscribers_count"
+name = "subreddit_tracker"
