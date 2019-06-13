@@ -1,5 +1,7 @@
 # subreddit_tracker
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5fbad580efe24b898e80ec7cd64345c9)](https://app.codacy.com/app/dbeley/subreddit_tracker?utm_source=github.com&utm_medium=referral&utm_content=dbeley/subreddit_tracker&utm_campaign=Badge_Grade_Dashboard)
+
 Extract subscribers and live users count of a list of subreddit defined in a text file.
 
 ## Requirements
