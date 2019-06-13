@@ -1,23 +1,23 @@
 import setuptools
-import reddit_subscribers_count
+import subreddit_tracker
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="reddit_subscribers_count",
-    version=reddit_subscribers_count.__version__,
+    name="subreddit_tracker",
+    version=subreddit_tracker.__version__,
     author="dbeley",
     author_email="dbeley@protonmail.com",
-    description="Scrap subreddits subscribers count",
+    description="Exports subscribers and live users count from subreddits",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/dbeley/reddit_subscribers_count",
+    url="https://github.com/dbeley/subreddit_tracker",
     packages=setuptools.find_packages(),
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "reddit_subscribers_count=reddit_subscribers_count.__main__:main"
+            "subreddit_tracker=subreddit_tracker.__main__:main"
         ]
     },
     classifiers=[

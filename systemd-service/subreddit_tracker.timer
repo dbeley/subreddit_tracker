@@ -1,5 +1,5 @@
 [Unit]
-Description=Run the reddit_subscribers_count script every hour
+Description=Run the subreddit_tracker script 10 minutes
 
 [Timer]
 #OnBootSec=15min

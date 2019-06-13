@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5e995d8e0bed3bdf7b69ec92890d16de72709b0d344f777b668dd8d39fdc9cd0"
+            "sha256": "7a368e0d2f02ebfa6691823a3226aa1cae88c34fed5ba5a45d136a2de4caefa8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -43,10 +43,10 @@
         },
         "praw": {
             "hashes": [
-                "sha256:290bafad69f3a478f5fb64a8f8d8bfe2dab215af7e5fad7737f910e38fc6b97f",
-                "sha256:79767ebeae643ea3c99016d0611bd43976ed7dbde06d6c6f60564012f8523c5b"
+                "sha256:bf004df19989756e9c5aac5cefdb7d8779760f1ec2f1e9b1d6a2195cc1099d96",
+                "sha256:cc2f5f46f9041b843f245b47097e8c2f63881a3e11a223c1b5eee5cd02fa9d87"
             ],
-            "version": "==6.2.0"
+            "version": "==6.3.1"
         },
         "prawcore": {
             "hashes": [
@@ -55,16 +55,12 @@
             ],
             "version": "==1.0.1"
         },
-        "reddit-subscribers-count": {
-            "editable": true,
-            "path": "."
-        },
         "requests": {
             "hashes": [
-                "sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e",
-                "sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"
+                "sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4",
+                "sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"
             ],
-            "version": "==2.21.0"
+            "version": "==2.22.0"
         },
         "six": {
             "hashes": [
@@ -82,10 +78,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4",
-                "sha256:a637e5fae88995b256e3409dc4d52c2e2e0ba32c42a6365fee8bbd2238de3cfb"
+                "sha256:b246607a25ac80bedac05c6f282e3cdaf3afb65420fd024ac94435cabe6e18d1",
+                "sha256:dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
             ],
-            "version": "==1.24.3"
+            "version": "==1.25.3"
         },
         "websocket-client": {
             "hashes": [

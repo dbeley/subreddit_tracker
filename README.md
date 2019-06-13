@@ -1,6 +1,6 @@
-# reddit_subscribers_count
+# subreddit_tracker
 
-Extract subscribers count of a list of subreddit defined in a text file to a csv file
+Extract subscribers and live users count of a list of subreddit defined in a text file.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ videos
 You can then call
 
 ```
-reddit_subscribers_count -f subreddit_list.txt
+subreddit_tracker -f subreddit_list.txt
 ```
 
 ## Autostarting
@@ -41,23 +41,14 @@ You can launch the timer with
 
 ```
 systemctl --user daemon-reload
-systemctl --user enable --now reddit_subscribers_count.timer
+systemctl --user enable --now subreddit_tracker.timer
 ```
 
 ## Help
 
 ```
-reddit_subscribers_count -h
+subreddit_tracker -h
 ```
 
 ```
-usage: reddit_subscribers_count [-h] [--debug] [-f FILE]
-
-Script extracting the subscribers count of several subreddits
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --debug               Display debugging information
-  -f FILE, --file FILE  File containing the subreddits (default : sample file
-                        containing popular subreddits)
 ```

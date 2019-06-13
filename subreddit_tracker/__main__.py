@@ -18,7 +18,7 @@ def redditconnect(bot):
     return reddit
 
 
-def write_sample_file(filename):
+def write_header_file(filename):
     columns = "Name,Date,Subscribers,Live Users\n"
     with open(filename, "w") as f:
         f.write(columns)
@@ -50,7 +50,7 @@ def main():
 
     global_filename = f"{directory}/subreddits_subscribers_count.csv"
     if not Path(global_filename).is_file():
-        write_sample_file(global_filename)
+        write_header_file(global_filename)
 
     for subreddit in subreddits:
         logger.debug("Extracting infos for subreddit %s", subreddit)
@@ -59,11 +59,13 @@ def main():
 
         filename = f"{directory}/{subreddit}_subscribers_count.csv"
         if not Path(filename).is_file():
-            write_sample_file(filename)
+            write_header_file(filename)
 
         logger.debug(
-            "/r/%s : {subscribers_count} subscribers, {live_users} live users",
+            "/r/%s : %s subscribers, %s live users",
             subreddit,
+            subscribers_count,
+            live_users,
         )
         with open(global_filename, "a+") as f:
             f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
@@ -75,7 +77,7 @@ def main():
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Script extracting the subscribers count of several subreddits"
+        description="Extract subscribers and live users count of a list of subreddit defined in a text file."
     )
     parser.add_argument(
         "--debug",

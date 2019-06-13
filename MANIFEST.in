@@ -1,2 +1,2 @@
 include *.md
-include reddit_subscribers_count/*.txt
+include subreddit_tracker/*.txt

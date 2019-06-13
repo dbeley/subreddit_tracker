@@ -1,0 +1,15 @@
+[Unit]
+Description=subreddit_tracker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Documents/subreddit_tracker/
+# Without virtualenv
+# ExecStart=/usr/bin/python /usr/bin/subreddit_tracker -f subreddit_list.txt
+# With virtualenv
+# ExecStart=%h/Documents/subreddit_tracker/venv/bin/python %h/Documents/subreddit_tracker/venv/bin/subreddit_tracker -f subreddit_list.txt
+# With pipenv
+ExecStart=%h/Documents/subreddit_tracker/.venv/bin/subreddit_tracker -f subreddit_list.txt
+
+[Install]
+WantedBy=multi-user.target
