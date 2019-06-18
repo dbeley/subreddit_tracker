@@ -33,7 +33,7 @@ def main():
 
     logger.debug("Subreddit list parsing")
     if args.file is None:
-        logger.debug("Using default subreddit_list.txt")
+        logger.info("Using default subreddit_list.txt")
         file = pkg_resources.resource_string(__name__, "subreddit_list.txt")
         subreddits = file.decode("utf-8").split("\n")
         subreddits = subreddits[:-1]
@@ -57,20 +57,25 @@ def main():
         subscribers_count = reddit.subreddit(subreddit).subscribers
         live_users = reddit.subreddit(subreddit).accounts_active
 
-        filename = f"{directory}/{subreddit}_subscribers_count.csv"
-        if not Path(filename).is_file():
-            write_header_file(filename)
-
         logger.debug(
             "/r/%s : %s subscribers, %s live users",
             subreddit,
             subscribers_count,
             live_users,
         )
+        # Global export file
         with open(global_filename, "a+") as f:
             f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
-        with open(filename, "a+") as f:
-            f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
+        # Distinct export files
+        if args.distinct_file:
+            filename = f"{directory}/{subreddit}_subscribers_count.csv"
+            if not Path(filename).is_file():
+                write_header_file(filename)
+
+            with open(filename, "a+") as f:
+                f.write(
+                    f"{subreddit},{auj},{subscribers_count},{live_users}\n"
+                )
 
     logger.debug("Runtime : %.2f seconds" % (time.time() - temps_debut))
 
@@ -93,6 +98,14 @@ def parse_args():
         help="File containing the subreddits (default : sample file containing popular subreddits)",
         type=str,
     )
+    parser.add_argument(
+        "-d",
+        "--distinct_file",
+        help="Create discting file for each subreddits (in addition to the global file).",
+        dest="distinct_file",
+        action="store_true",
+    )
+    parser.set_defaults(distinct_file=False)
     args = parser.parse_args()
     logging.basicConfig(level=args.loglevel)
     return args

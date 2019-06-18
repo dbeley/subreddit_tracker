@@ -53,4 +53,16 @@ subreddit_tracker -h
 ```
 
 ```
+usage: subreddit_tracker [-h] [--debug] [-f FILE] [-d]
+
+Extract subscribers and live users count of a list of subreddit defined in a
+text file.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               Display debugging information
+  -f FILE, --file FILE  File containing the subreddits (default : sample file
+                        containing popular subreddits)
+  -d, --distinct_file   Create discting file for each subreddits (in addition
+                        to the global file).
 ```
