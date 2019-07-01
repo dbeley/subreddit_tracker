@@ -53,29 +53,34 @@ def main():
         write_header_file(global_filename)
 
     for subreddit in subreddits:
-        logger.debug("Extracting infos for subreddit %s", subreddit)
-        subscribers_count = reddit.subreddit(subreddit).subscribers
-        live_users = reddit.subreddit(subreddit).accounts_active
+        try:
+            logger.debug("Extracting infos for subreddit %s", subreddit)
+            subscribers_count = reddit.subreddit(subreddit).subscribers
+            live_users = reddit.subreddit(subreddit).accounts_active
 
-        logger.debug(
-            "/r/%s : %s subscribers, %s live users",
-            subreddit,
-            subscribers_count,
-            live_users,
-        )
-        # Global export file
-        with open(global_filename, "a+") as f:
-            f.write(f"{subreddit},{auj},{subscribers_count},{live_users}\n")
-        # Distinct export files
-        if args.distinct_file:
-            filename = f"{directory}/{subreddit}_subscribers_count.csv"
-            if not Path(filename).is_file():
-                write_header_file(filename)
-
-            with open(filename, "a+") as f:
+            logger.debug(
+                "/r/%s : %s subscribers, %s live users",
+                subreddit,
+                subscribers_count,
+                live_users,
+            )
+            # Global export file
+            with open(global_filename, "a+") as f:
                 f.write(
                     f"{subreddit},{auj},{subscribers_count},{live_users}\n"
                 )
+            # Distinct export files
+            if args.distinct_file:
+                filename = f"{directory}/{subreddit}_subscribers_count.csv"
+                if not Path(filename).is_file():
+                    write_header_file(filename)
+
+                with open(filename, "a+") as f:
+                    f.write(
+                        f"{subreddit},{auj},{subscribers_count},{live_users}\n"
+                    )
+        except Exception as e:
+            logger.error("Subreddit %s: %s", subreddit, e)
 
     logger.debug("Runtime : %.2f seconds" % (time.time() - temps_debut))
 
