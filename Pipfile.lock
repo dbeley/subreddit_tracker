@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c270f6d62d223cf283e5eef645263b8ed827bad47a1ae7019178591ab79c3e1f"
+            "sha256": "7a368e0d2f02ebfa6691823a3226aa1cae88c34fed5ba5a45d136a2de4caefa8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -29,6 +29,10 @@
                 "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"
             ],
             "version": "==3.0.4"
+        },
+        "e1839a8": {
+            "editable": true,
+            "path": "."
         },
         "idna": {
             "hashes": [
@@ -64,10 +68,6 @@
                 "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
             ],
             "version": "==1.12.0"
-        },
-        "subreddit-tracker": {
-            "editable": true,
-            "path": "."
         },
         "update-checker": {
             "hashes": [

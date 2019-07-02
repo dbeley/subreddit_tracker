@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5fbad580efe24b898e80ec7cd64345c9)](https://app.codacy.com/app/dbeley/subreddit_tracker?utm_source=github.com&utm_medium=referral&utm_content=dbeley/subreddit_tracker&utm_campaign=Badge_Grade_Dashboard)
 
-Extract subscribers and live users count of a list of subreddit defined in a text file.
+Extract subscribers and live users count of a list of subreddit defined in a csv file or a sqlite database.
 
 ## Requirements
 
@@ -44,6 +44,7 @@ You can launch the timer with
 ```
 systemctl --user daemon-reload
 systemctl --user enable --now subreddit_tracker.timer
+systemctl --user enable --now subreddit_tracker_sqlite.timer
 ```
 
 ## Help
@@ -53,7 +54,7 @@ subreddit_tracker -h
 ```
 
 ```
-usage: subreddit_tracker [-h] [--debug] [-f FILE] [-d]
+usage: subreddit_tracker [-h] [--debug] [-f FILE] [-b BACKEND]
 
 Extract subscribers and live users count of a list of subreddit defined in a
 text file.
@@ -63,6 +64,7 @@ optional arguments:
   --debug               Display debugging information
   -f FILE, --file FILE  File containing the subreddits (default : sample file
                         containing popular subreddits)
-  -d, --distinct_file   Create discting file for each subreddits (in addition
-                        to the global file).
+  -b BACKEND, --backend BACKEND
+                        Backend to store the extracted data (sqlite or csv,
+                        Default=csv).
 ```
