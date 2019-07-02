@@ -29,7 +29,7 @@ def write_header_file(filename):
 
 def extract_data_from_subreddit(reddit_api, subreddit):
     try:
-        logger.info("Extracting infos for subreddit %s", subreddit)
+        logger.debug("Extracting infos for subreddit %s", subreddit)
         subscribers_count = reddit_api.subreddit(subreddit).subscribers
         live_users = reddit_api.subreddit(subreddit).accounts_active
 
@@ -93,7 +93,7 @@ def main():
         subreddits = [x.strip() for x in subreddits]
     logger.debug(subreddits)
 
-    reddit_api = redditconnect("bot")
+    reddit_api = redditconnect("bot_subreddit_tracker")
 
     logger.debug("Check Exports Folder")
     directory = "Exports"

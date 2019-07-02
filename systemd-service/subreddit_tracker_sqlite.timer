@@ -1,5 +1,5 @@
 [Unit]
-Description=Run the subreddit_tracker script 10 minutes
+Description=Run the subreddit_tracker script every 10 minutes (sqlite backend)
 
 [Timer]
 #OnBootSec=15min

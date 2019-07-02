@@ -18,7 +18,7 @@ reddit_url=https://www.reddit.com
 # The URL prefix for short URLs.
 short_url=https://redd.it
 
-[bot]
+[bot_subreddit_tracker]
 client_id=client_id_here
 client_secret=client_secret_here
 password=password_here

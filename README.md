@@ -25,15 +25,16 @@ gifs
 videos
 ```
 
-You can then call
+You can then call (depending on the backend you want) :
 
 ```
-subreddit_tracker -f subreddit_list.txt
+subreddit_tracker -f subreddit_list.txt -b csv
+subreddit_tracker -f subreddit_list.txt -b sqlite
 ```
 
 ## Autostarting
 
-A systemd service and its timer are provided in the systemd-service/ folder. You can tweak the service file to launch the script in another directory or to launch the script with other options.
+Systemd services and their respective timers are provided in the systemd-service/ folder. You will have to change the service files to launch the script in another directory or to launch it with other options.
 
 The timer is set to launch the script every hour.
 
