@@ -22,7 +22,7 @@ def redditconnect(bot):
 
 
 def write_header_file(filename):
-    columns = "Name,Date,Subscribers,Live Users\n"
+    columns = "Name,Date,Subscribers,Live_Users\n"
     with open(filename, "w") as f:
         f.write(columns)
 
@@ -102,7 +102,8 @@ def main():
 
     for subreddit in subreddits:
         infos = extract_data_from_subreddit(reddit_api, subreddit)
-        list_infos.append(infos)
+        if infos:
+            list_infos.append(infos)
 
     if args.backend == "csv":
         export_list_infos_to_csv(directory, list_infos)

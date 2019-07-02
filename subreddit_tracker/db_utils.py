@@ -13,7 +13,7 @@ class SubredditTrackerDB:
     def create_table(self):
         try:
             self.cursor.execute(
-                """CREATE TABLE measures (subreddit text, date text, live_users int, subscribers int)"""
+                """CREATE TABLE measures (Name text, Date text, Subscribers int, Live_Users int)"""
             )
             self.conn.commit()
         except Exception as e:
