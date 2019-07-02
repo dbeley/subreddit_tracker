@@ -5,6 +5,6 @@
 extract subscribers and live users count from subreddits
 """
 
-__version__ = "1.0"
+__version__ = "1.1"
 
 name = "subreddit_tracker"
