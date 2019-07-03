@@ -93,7 +93,7 @@ def main():
         subreddits = [x.strip() for x in subreddits]
     logger.debug(subreddits)
 
-    reddit_api = redditconnect("bot_subreddit_tracker")
+    reddit_api = redditconnect(args.praw_user)
 
     logger.debug("Check Exports Folder")
     directory = "Exports"
@@ -128,13 +128,21 @@ def parse_args():
     parser.add_argument(
         "-f",
         "--file",
-        help="File containing the subreddits (default : sample file containing popular subreddits)",
+        help="File containing the subreddits (Default : sample file containing popular subreddits)",
         type=str,
     )
     parser.add_argument(
+        "-p",
+        "--praw_user",
+        help="User to use in the praw.ini file (Default : bot_subreddit_tracker).",
+        type=str,
+        default="bot_subreddit_tracker",
+    ),
+    parser.add_argument(
         "-b",
         "--backend",
-        help="Backend to store the extracted data (sqlite or csv, Default=csv).",
+        help="Backend to store the extracted data (sqlite or csv, Default : csv).",
+        type=str,
         default="csv",
     )
     args = parser.parse_args()

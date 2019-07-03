@@ -55,9 +55,7 @@ You will have to change the service files to launch the script in another direct
 
 The timer is set to launch the script every 10 minutes.
 
-You will have to copy the service and the timer files in ~/.config/systemd/user/
-
-You can launch the timer with
+After copying the service and timer files in ~/.config/systemd/user/, you can launch the timer with :
 
 ```
 systemctl --user daemon-reload
@@ -72,7 +70,7 @@ subreddit_tracker -h
 ```
 
 ```
-usage: subreddit_tracker [-h] [--debug] [-f FILE] [-b BACKEND]
+usage: subreddit_tracker [-h] [--debug] [-f FILE] [-p PRAW_USER] [-b BACKEND]
 
 Extract subscribers and live users count of a list of subreddit defined in a
 text file.
@@ -80,9 +78,12 @@ text file.
 optional arguments:
   -h, --help            show this help message and exit
   --debug               Display debugging information
-  -f FILE, --file FILE  File containing the subreddits (default : sample file
+  -f FILE, --file FILE  File containing the subreddits (Default : sample file
                         containing popular subreddits)
+  -p PRAW_USER, --praw_user PRAW_USER
+                        User to use in the praw.ini file (Default :
+                        bot_subreddit_tracker).
   -b BACKEND, --backend BACKEND
                         Backend to store the extracted data (sqlite or csv,
-                        Default=csv).
+                        Default : csv).
 ```

@@ -1,0 +1,11 @@
+[Unit]
+Description=subreddit_tracker_sqlite_places.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Documents/subreddit_tracker/
+# With pipenv
+ExecStart=%h/Documents/subreddit_tracker/.venv/bin/subreddit_tracker -f subreddit_list_places.txt -b sqlite -p bot_subreddit_tracker_places
+
+[Install]
+WantedBy=multi-user.target

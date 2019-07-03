@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the subreddit_tracker script every 10 minutes (sqlite backend, places)
+
+[Timer]
+#OnBootSec=15min
+#OnUnitActiveSec=1d
+OnCalendar=*:0/10
+Persistent = True
+
+[Install]
+WantedBy=timers.target
