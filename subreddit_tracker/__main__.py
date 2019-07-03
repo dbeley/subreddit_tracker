@@ -39,7 +39,7 @@ def extract_data_from_subreddit(reddit_api, subreddit):
             subscribers_count,
             live_users,
         )
-        list_infos = [
+        infos = [
             str(subreddit),
             str(AUJ),
             str(subscribers_count),
@@ -48,7 +48,7 @@ def extract_data_from_subreddit(reddit_api, subreddit):
     except Exception as e:
         logger.error("Subreddit %s: %s", subreddit, e)
         return None
-    return list_infos
+    return infos
 
 
 def export_list_infos_to_csv(directory, list_infos):
@@ -60,7 +60,6 @@ def export_list_infos_to_csv(directory, list_infos):
     with open(global_filename, "a+") as f:
         for i in list_infos:
             f.write(",".join(i) + "\n")
-            # f.write(f"{subreddit},{AUJ},{subscribers_count},{live_users}\n")
     logger.info("Export to csv. DONE.")
     return None
 
@@ -137,7 +136,7 @@ def parse_args():
         help="User to use in the praw.ini file (Default : bot_subreddit_tracker).",
         type=str,
         default="bot_subreddit_tracker",
-    ),
+    )
     parser.add_argument(
         "-b",
         "--backend",

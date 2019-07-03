@@ -29,7 +29,6 @@ Installation in the systemd-wide environment with pip :
 pip install .
 ```
 
-
 ## Usage
 
 Given a simple txt file subreddit_list.txt
