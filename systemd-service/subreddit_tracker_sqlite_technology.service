@@ -1,5 +1,5 @@
 [Unit]
-Description=subreddit_tracker_sqlite.service
+Description=subreddit_tracker_sqlite_technology.service
 
 [Service]
 Type=oneshot
