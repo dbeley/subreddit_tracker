@@ -9,11 +9,26 @@ Extract subscribers and live users count of a list of subreddit defined in a csv
 - praw
 - working praw config in ~/.config/ (see praw.ini_sample for an example)
 
-## Installation in a virtualenv (recommended)
+## Installation
+
+Installation in a virtualenv with pipenv (recommended) :
 
 ```
 pipenv install '-e .'
 ```
+
+Installation in the system-wide environment :
+
+```
+python setup.py install
+```
+
+Installation in the systemd-wide environment with pip :
+
+```
+pip install .
+```
+
 
 ## Usage
 
@@ -34,11 +49,13 @@ subreddit_tracker -f subreddit_list.txt -b sqlite
 
 ## Autostarting
 
-Systemd services and their respective timers are provided in the systemd-service/ folder. You will have to change the service files to launch the script in another directory or to launch it with other options.
+Systemd services and their respective timers are provided in the systemd-service/ folder.
 
-The timer is set to launch the script every hour.
+You will have to change the service files to launch the script in another directory or to launch it with other options (by default the service files launch the script in a pipenv virtualenv located in the same directory as the script).
 
-Then copy the service and the timer files in ~/.config/systemd/user/
+The timer is set to launch the script every 10 minutes.
+
+You will have to copy the service and the timer files in ~/.config/systemd/user/
 
 You can launch the timer with
 
