@@ -1,7 +1,6 @@
 """ Add content from a csv file created by subreddit_tracker to a new or existing database."""
 from subreddit_tracker import db_utils
 
-
 # If subreddit_tracker.db file doesn't exist, it will be created.
 print("Opening or creating database subreddit_tracker.db.")
 db = db_utils.SubredditTrackerDB()
@@ -9,8 +8,18 @@ db = db_utils.SubredditTrackerDB()
 # Open csv file
 print("Reading csv file.")
 with open("subreddits_subscribers_count_2019-07-02.csv") as f:
+    # Pass the header line
+    _ = f.readline()
     # Create tuples from csv file
     lines = [x.strip().split(",") for x in f.readlines()]
+
+with open("subreddit_subscribers_count_2juillet.csv") as f:
+    # Pass the header line
+    _ = f.readline()
+    # Create tuples from csv file
+    lines2 = [x.strip().split(",") for x in f.readlines()]
+
+lines += lines2
 
 # Fill tuples if 4th field doesn't exist
 for index, x in enumerate(lines):

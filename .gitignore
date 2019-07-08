@@ -1,12 +1,13 @@
+*.csv
+*.db
 *.egg-info/
 .venv/
+/subreddit_list*.txt
 Exports/
 __pycache__/
+archives/
 build/
 dist/
-*.csv
-/subreddit_list*.txt
 praw.ini
 tags
 test.py
-archives/
