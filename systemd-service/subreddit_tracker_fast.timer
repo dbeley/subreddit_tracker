@@ -1,0 +1,9 @@
+[Unit]
+Description=Run the subreddit_tracker script every 10 minutes (fast version)
+
+[Timer]
+OnCalendar=*:0/1
+Persistent = True
+
+[Install]
+WantedBy=timers.target
