@@ -8,15 +8,16 @@ DB_LOCK = RLock()
 
 
 class SubredditTrackerThread(Thread):
+    @classmethod
+    def write_header_file(filename):
+        columns = "Name,Date,Subscribers,Live_Users\n"
+        with open(filename, "w") as f:
+            f.write(columns)
+
     def redditconnect(self, bot):
         user_agent = "python:bot"
 
         self.api = praw.Reddit(bot, user_agent=user_agent)
-
-    def write_header_file(self, filename):
-        columns = "Name,Date,Subscribers,Live_Users\n"
-        with open(filename, "w") as f:
-            f.write(columns)
 
     def extract_data_from_subreddit(self, subreddit):
         try:

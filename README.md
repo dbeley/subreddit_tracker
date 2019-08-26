@@ -90,6 +90,6 @@ optional arguments:
 
 ## Threads
 
-You can use several threads with the -n/--nb_threads argument. Be sure to have corresponding entries in your praw.ini file with different accounts under [reddit_bot_2], [reddit_bot_3], ... headings.
+You can use several threads with the -n/--nb_threads argument. Be sure to have corresponding entries in your praw.ini file with different accounts under \[reddit_bot_2], \[reddit_bot_3], ... headings.
 
 The subreddit list will be divided into N sublists. Each of those will be extracted with a separate reddit account to make things faster.
