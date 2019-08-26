@@ -82,7 +82,7 @@ optional arguments:
   -n NB_THREADS, --nb_threads NB_THREADS
                         Number of threads to use. Be sure to have
                         corresponding entries in your praw.ini file
-                        (bot_reddit_1... bot_reddit_N).
+                        (reddit_bot_1... reddit_bot_N).
   -b BACKEND, --backend BACKEND
                         Backend to store the extracted data (sqlite or csv,
                         Default : csv).
@@ -90,6 +90,6 @@ optional arguments:
 
 ## Threads
 
-You can use several threads with the -n/--nb_threads argument. Be sure to have corresponding entries in your praw.ini file with different accounts under [bot_reddit_2], [bot_reddit_3], ... headings.
+You can use several threads with the -n/--nb_threads argument. Be sure to have corresponding entries in your praw.ini file with different accounts under [reddit_bot_2], [reddit_bot_3], ... headings.
 
 The subreddit list will be divided into N sublists. Each of those will be extracted with a separate reddit account to make things faster.

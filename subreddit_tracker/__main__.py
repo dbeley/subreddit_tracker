@@ -147,7 +147,7 @@ def main():
 
     threads = []
     for index, l in enumerate(subreddits_list, 1):
-        reddit_account = f"bot_reddit_{index}"
+        reddit_account = f"reddit_bot_{index}"
         t = subreddit_tracker_thread(reddit_account, l, args.backend)
         # t = Thread(target=check_url, args=(url,))
         t.start()
@@ -212,7 +212,7 @@ def parse_args():
     parser.add_argument(
         "-n",
         "--nb_threads",
-        help="Number of threads to use. Be sure to have corresponding entries in your praw.ini file (bot_reddit_1... bot_reddit_N).",
+        help="Number of threads to use. Be sure to have corresponding entries in your praw.ini file (reddit_bot_1... reddit_bot_N).",
         type=int,
         default=1,
     )

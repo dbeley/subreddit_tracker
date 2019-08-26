@@ -2,7 +2,7 @@
 *.db
 *.egg-info/
 .venv/
-/subreddit_list*.txt
+/subreddits_list*.txt
 Exports/
 __pycache__/
 archives/
