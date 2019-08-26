@@ -69,7 +69,7 @@ subreddit_tracker -h
 ```
 
 ```
-usage: subreddit_tracker [-h] [--debug] [-f FILE] [-p PRAW_USER] [-b BACKEND]
+usage: subreddit_tracker [-h] [--debug] [-f FILE] [-n NB_THREADS] [-b BACKEND]
 
 Extract subscribers and live users count of a list of subreddit defined in a
 text file.
@@ -79,10 +79,17 @@ optional arguments:
   --debug               Display debugging information
   -f FILE, --file FILE  File containing the subreddits (Default : sample file
                         containing popular subreddits)
-  -p PRAW_USER, --praw_user PRAW_USER
-                        User to use in the praw.ini file (Default :
-                        bot_subreddit_tracker).
+  -n NB_THREADS, --nb_threads NB_THREADS
+                        Number of threads to use. Be sure to have
+                        corresponding entries in your praw.ini file
+                        (bot_reddit_1... bot_reddit_N).
   -b BACKEND, --backend BACKEND
                         Backend to store the extracted data (sqlite or csv,
                         Default : csv).
 ```
+
+## Threads
+
+You can use several threads with the -n/--nb_threads argument. Be sure to have corresponding entries in your praw.ini file with different accounts under [bot_reddit_2], [bot_reddit_3], ... headings.
+
+The subreddit list will be divided into N sublists. Each of those will be extracted with a separate reddit account to make things faster.
