@@ -5,7 +5,7 @@ Description=subreddit_tracker_sqlite.service
 Type=oneshot
 WorkingDirectory=%h/Documents/subreddit_tracker/
 # With pipenv
-ExecStart=%h/Documents/subreddit_tracker/.venv/bin/subreddit_tracker -f subreddit_list.txt -b sqlite
+ExecStart=%h/Documents/subreddit_tracker/.venv/bin/subreddit_tracker -f ../reddit_leaderboard_scraper/Exports/subreddits_list.txt -b sqlite -n 10
 
 [Install]
 WantedBy=multi-user.target
