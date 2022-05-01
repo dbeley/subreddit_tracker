@@ -12,7 +12,7 @@ class SubredditTrackerDB:
 
     def create_table(self, name):
         try:
-            query = f"CREATE TABLE IF NOT EXISTS {name} (Name text, Date text, Subscribers int, Live_Users int)"
+            query = f"CREATE TABLE IF NOT EXISTS '{name}' (Name text, Date text, Subscribers int, Live_Users int)"
             self.cursor.execute(query)
             self.conn.commit()
         except Exception as e:
@@ -22,7 +22,7 @@ class SubredditTrackerDB:
         for i in list_tuples:
             subreddit_name = i[0]
             self.create_table(subreddit_name)
-            query = f"INSERT INTO {subreddit_name} VALUES (?,?,?,?)"
+            query = f"INSERT INTO '{subreddit_name}' VALUES (?,?,?,?)"
             self.cursor.execute(query, i)
 
     def return_all_rows(self):
