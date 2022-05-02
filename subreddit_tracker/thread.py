@@ -15,7 +15,7 @@ class SubredditTrackerThread(Thread):
             f.write(columns)
 
     def redditconnect(self, bot):
-        user_agent = "python:bot"
+        user_agent = "python:subreddit_tracker"
 
         self.api = praw.Reddit(bot, user_agent=user_agent)
 
@@ -44,13 +44,13 @@ class SubredditTrackerThread(Thread):
                 subreddit,
                 e,
             )
+            with open(f"{self.export_directory}/subreddits_errors.txt", "r") as f:
+                f.write(f"{subreddit}\n")
             return None
         return infos
 
     def export_list_infos_to_csv(self):
-        global_filename = (
-            f"{self.export_directory}/subreddits_subscribers_count.csv"
-        )
+        global_filename = f"{self.export_directory}/subreddits_subscribers_count.csv"
         if not Path(global_filename).is_file():
             write_header_file(global_filename)
 
@@ -67,9 +67,7 @@ class SubredditTrackerThread(Thread):
         subreddit_tracker_db.quit()
         logger.info("Export to sqlite %s. DONE.", self.reddit_account)
 
-    def __init__(
-        self, reddit_account, subreddits, date, backend, export_directory
-    ):
+    def __init__(self, reddit_account, subreddits, date, backend, export_directory):
         Thread.__init__(self)
 
         self.reddit_account = reddit_account
